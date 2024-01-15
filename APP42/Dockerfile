@@ -1,7 +1,8 @@
-FROM openjdk:8-jdk-alpine
+FROM tomcat:9-jdk11
 COPY src /App42/src
 COPY pom.xml /App42
 WORKDIR /home/keglia/App42
+RUN apt install -y default-jdk
 RUN apt install -y maven
 RUN mvn clean package
 EXPOSE 8080
