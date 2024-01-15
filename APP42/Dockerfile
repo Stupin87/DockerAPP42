@@ -1,6 +1,6 @@
 FROM tomcat:9-jdk11
 RUN apt update
-RUN apt install -y openjdk:6
+RUN apt install -y  default-jdk
 RUN apt install -y maven 
 RUN apt install -y git 
 WORKDIR /home/keglia/
