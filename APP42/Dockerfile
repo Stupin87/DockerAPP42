@@ -1,6 +1,7 @@
-FROM tomcat:9-jdk11
+FROM ubuntu:18.04
 RUN apt update
 RUN apt install -y  default-jdk
+RUN apt install -y tomcat:9
 RUN apt install -y maven 
 RUN apt install -y git 
 WORKDIR /home/keglia/
