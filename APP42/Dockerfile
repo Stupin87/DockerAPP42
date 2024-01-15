@@ -1,12 +1,8 @@
-FROM ubuntu:18.04
-RUN apt update
-RUN apt install -y  default-jdk
-RUN apt install -y tomcat9
-RUN apt install -y maven 
-RUN apt install -y git 
-WORKDIR /home/keglia/
-RUN git clone https://github.com/Stupin87/App42.git
+FROM openjdk:8-jdk-alpine
+COPY src /App42/src
+COPY pom.xml /App42
 WORKDIR /home/keglia/App42
+RUN apk add --no-cache maven
 RUN mvn clean package
 EXPOSE 8080
 CMD ["java", "-jar", "App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war"]
